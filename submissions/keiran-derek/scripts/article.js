@@ -3,7 +3,7 @@ var articles = [];
 function Article (opts) {
   // TODO: Use the js object passed in to complete this contructor function:
   // Save ALL the properties of `opts` into `this`.
-  this.author = opts.author;
+  for(var prop in opts) {this[prop]= opts[prop];}
 }
 
 Article.prototype.toHtml = function() {
@@ -42,7 +42,7 @@ ourLocalData.forEach(function(ele) {
 });
 
 // Append each Article to the DOM. Look carefully:
-//   This '.toHtml' method is one we created.
+  // This '.toHtml' method is one we created.
 articles.forEach(function(a){
   $('#articles').append(a.toHtml());
 });
